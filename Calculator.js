@@ -19,18 +19,18 @@ function getCurrentUIValues() {
 
 function setupIntialValues() {
     const values = { amount: 10000, years: 10, rate: 4.5 };
-    const amountUI = document.getElementById("loan-amount");
-    amountUI.value = values.amount;
-    const yearsUI = document.getElementById("loan-years");
-    yearsUI.value = values.years;
-    const rateUI = document.getElementById("loan-rate");
-    rateUI.value = values.rate;
+    const loanAmount = document.getElementById("loan-amount");
+    loanAmount.value = values.amount;
+    const numberYears = document.getElementById("loan-years");
+    numberYears.value = values.years;
+    const interestRate = document.getElementById("loan-rate");
+    interestRate.value = values.rate;
     update();
 }
 
 function update() {
-    const currentUIValues = getCurrentUIValues();
-    updateMonthly(calculateMonthlyPayment(currentUIValues));
+    const inputValues = getCurrentUIValues();
+    updateMonthly(calculateMonthlyPayment(inputValues));
 }
 
 function calculateMonthlyPayment(values) {
@@ -43,6 +43,6 @@ function calculateMonthlyPayment(values) {
 }
 
 function updateMonthly(monthly) {
-    const monthlyUI = document.getElementById("monthly-payment");
-    monthlyUI.innerText = "$" + monthly;
+    const monthlyPayment = document.getElementById("monthly-payment");
+    monthlyPayment.innerText = "$" + monthly;
 }
